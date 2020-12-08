@@ -1,0 +1,6 @@
+---
+actions:
+  to: kubernetes/overlays/local/deployment-patch.yaml
+---
+
+
