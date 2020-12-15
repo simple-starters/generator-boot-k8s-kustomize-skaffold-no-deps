@@ -15,5 +15,6 @@ configMapGenerator:
       - env.properties
 resources:
   - ../base
-patches:
-- deployment-patch.yaml
+# Uncomment when patching the deployment is desired, via the deployment-patch.yaml
+# patches:
+# - deployment-patch.yaml
