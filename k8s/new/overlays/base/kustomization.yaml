@@ -4,6 +4,8 @@ actions:
 ---
 commonLabels:
   app.kubernetes.io/name: {{artifactId}}
+resources:
+  - github.com/kustomizations/spring-boot-web
 patchesJson6902:
 - target:
     group: apps
@@ -13,7 +15,7 @@ patchesJson6902:
   patch: |-
     - op: replace
       path: /metadata/name
-      value: "{{artifactId}}"    
+      value: {{artifactId}}
 - target:
     version: v1
     kind: Service
@@ -21,8 +23,4 @@ patchesJson6902:
   patch: |-
     - op: replace
       path: /metadata/name
-      value: "{{artifactId}}"       
-resources:
-  - github.com/kustomizations/spring-boot-web
-resources:
-  - github.com/kustomizations/spring-boot-web
+      value: {{artifactId}}       
