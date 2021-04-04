@@ -47,6 +47,24 @@ profiles:
               - -Plocal
 ```
 
+Please update also the kustomization.yaml in the generated /kubernetes/overlays/local folder to reflect the image prefix
+```yaml
+images:
+  - name: markpollack/spring-sample-app:1.0.0  #used for Kustomize matching
+    newName: <cloud prefix>/project-name>/{{artifactId}}
+    newTag: latest
+configMapGenerator:
+  - name: spring-configmap  # naming convention in base use to mount the file to /config/application.properties in a persistent volume
+    files:
+      - application.properties
+  - name: spring-configmap-env  # naming convention in base to load environment variables from a reference to this config map
+    envs:
+      - env.properties
+resources:
+  - ../base
+```
+
+
 # Building and deploying the application
 
 **Step 1:** Build the project, create the container image, and deploy to Kubernetes:

@@ -13,8 +13,6 @@ profiles:
             type: maven
             args:
               - -Plocal
-#          buildpack:
-#            builder: "cloudfoundry/cnb:cflinuxfs3"
       tagPolicy:
         sha256: {}
       local:

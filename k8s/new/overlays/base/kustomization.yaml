@@ -2,7 +2,6 @@
 actions:
   to: kubernetes/overlays/base/kustomization.yaml
 ---
-# namePrefix: {{artifactId}}-
 commonLabels:
   app.kubernetes.io/name: {{artifactId}}
 resources:
